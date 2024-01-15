@@ -1,6 +1,6 @@
 ## DISTANCE AND VISUAL INFORMATION (davi) PIPELINE
 
-![Image alt text](davi_symbol.png)
+![Image alt text](davi_symbol.png, height="100", width="100", align="center")
 
 
 The davi pipeline is designed to automatically correct DeepLabCut (DLC) detections based on distance and the colour spots of paint-marked ants.
