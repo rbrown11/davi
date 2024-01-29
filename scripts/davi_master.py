@@ -85,12 +85,20 @@ import dupl
 
 
 
+print("okay, the next step is to create a labeled video from the davi detections, and record down the identities of each ant. Then, in the terminal, type 'python split_stitch.py) and follow that script! :)))" )
+
+time.sleep(3)
+
+
 print("Thank you and bye bye!")
 
-time.sleep(1)
+time.sleep(2)
 
 
 os.system("pokemonsay -p Squirtle -t 'The noblest pleasure is the joy of understanding'")
+
+
+
 
 
 
