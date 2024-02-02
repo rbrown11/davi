@@ -218,7 +218,7 @@ for dupl in tqdm(dupl_1_2):
 
     ## waffles ##
 
-    if ant1_current_theta == 0:
+    if ant1_current_theta == 0 or math.isnan(ant1_current_theta):
         ant1_current_ant1_original = np.nan
         ant1_current_ant2_original = np.nan
         # maybe data = nan and loop continues
@@ -230,7 +230,7 @@ for dupl in tqdm(dupl_1_2):
         ant2_current_waffle = davi.create_waffle(
             ant2_abx, ant2_aby, ant2_current_theta, pix)
 
-        if ant1_original_theta == 0:
+        if ant1_original_theta == 0 or math.isnan(ant1_original_theta):
             ant1_current_ant1_original = np.nan
 
         elif ant1_original_theta != 0:
@@ -239,7 +239,7 @@ for dupl in tqdm(dupl_1_2):
             ant1_current_ant1_original = davi.subtract_colours_2(
                 ant1_current_waffle, ant1_original_waffle)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant1_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -399,7 +399,7 @@ for dupl in tqdm(dupl_1_3):
 
     ## waffles ##
 
-    if ant1_current_theta == 0:
+    if ant1_current_theta == 0 or math.isnan(ant1_current_theta):
         ant1_current_ant1_original = np.nan
         ant1_current_ant2_original = np.nan
 
@@ -409,7 +409,7 @@ for dupl in tqdm(dupl_1_3):
         ant2_current_waffle = davi.create_waffle(
             ant2_abx, ant2_aby, ant2_current_theta, pix)
 
-        if ant1_original_theta == 0:
+        if ant1_original_theta == 0 or math.isnan(ant1_original_theta):
             ant1_current_ant1_original = np.nan
 
         elif ant1_original_theta != 0:
@@ -418,10 +418,11 @@ for dupl in tqdm(dupl_1_3):
             ant1_current_ant1_original = davi.subtract_colours_2(
                 ant1_current_waffle, ant1_original_waffle)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant1_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
+
             ant2_original_waffle = davi.create_waffle(
                 ant2_abx_o, ant2_aby_o, ant2_original_theta, pix)
             ant1_current_ant2_original = davi.subtract_colours_2(
@@ -432,7 +433,7 @@ for dupl in tqdm(dupl_1_3):
     if ant1_current_ant1_original < ant1_current_ant2_original:
 
         copy_data = list(empty_row)
-        ant2_copy.loc[dupl] = copy_data
+        ant3_copy.loc[dupl] = copy_data
         previous_detection = "ant2_needs_changing"
 
     elif ant1_current_ant1_original > ant1_current_ant2_original:
@@ -447,7 +448,7 @@ for dupl in tqdm(dupl_1_3):
             ant1_copy.loc[dupl] = copy_data
         elif abs(ant1_abx - ant1_abx_o) < abs(ant1_abx - ant2_abx_o):
             copy_data = list(empty_row)
-            ant2_copy.loc[dupl] = copy_data
+            ant3_copy.loc[dupl] = copy_data
 
     else:
         weird_detections.append(dupl)
@@ -578,7 +579,7 @@ for dupl in tqdm(dupl_1_4):
 
     ## waffles ##
 
-    if ant1_current_theta == 0:
+    if ant1_current_theta == 0 or math.isnan(ant1_current_theta):
         ant1_current_ant1_original = np.nan
         ant1_current_ant2_original = np.nan
         continue
@@ -588,7 +589,7 @@ for dupl in tqdm(dupl_1_4):
         ant2_current_waffle = davi.create_waffle(
             ant2_abx, ant2_aby, ant2_current_theta, pix)
 
-        if ant1_original_theta == 0:
+        if ant1_original_theta == 0 or math.isnan(ant1_original_theta):
             ant1_current_ant1_original = np.nan
 
         elif ant1_original_theta != 0:
@@ -597,7 +598,7 @@ for dupl in tqdm(dupl_1_4):
             ant1_current_ant1_original = davi.subtract_colours_2(
                 ant1_current_waffle, ant1_original_waffle)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant1_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -611,7 +612,7 @@ for dupl in tqdm(dupl_1_4):
     if ant1_current_ant1_original < ant1_current_ant2_original:
 
         copy_data = list(empty_row)
-        ant2_copy.loc[dupl] = copy_data
+        ant4_copy.loc[dupl] = copy_data
         previous_detection = "ant2_needs_changing"
 
     elif ant1_current_ant1_original > ant1_current_ant2_original:
@@ -627,7 +628,7 @@ for dupl in tqdm(dupl_1_4):
             ant1_copy.loc[dupl] = copy_data
         elif abs(ant1_abx - ant1_abx_o) < abs(ant1_abx - ant2_abx_o):
             copy_data = list(empty_row)
-            ant2_copy.loc[dupl] = copy_data
+            ant4_copy.loc[dupl] = copy_data
 
     else:
         weird_detections.append(dupl)
@@ -760,7 +761,7 @@ for dupl in tqdm(dupl_1_5):
 
     ## waffles ##
 
-    if ant1_current_theta == 0:
+    if ant1_current_theta == 0 or math.isnan(ant1_current_theta):
         ant1_current_ant1_original = np.nan
         ant1_current_ant2_original = np.nan
         continue
@@ -770,7 +771,7 @@ for dupl in tqdm(dupl_1_5):
         ant2_current_waffle = davi.create_waffle(
             ant2_abx, ant2_aby, ant2_current_theta, pix)
 
-        if ant1_original_theta == 0:
+        if ant1_original_theta == 0 or math.isnan(ant1_original_theta):
             ant1_current_ant1_original = np.nan
 
         elif ant1_original_theta != 0:
@@ -779,7 +780,7 @@ for dupl in tqdm(dupl_1_5):
             ant1_current_ant1_original = davi.subtract_colours_2(
                 ant1_current_waffle, ant1_original_waffle)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant1_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -793,7 +794,7 @@ for dupl in tqdm(dupl_1_5):
     if ant1_current_ant1_original < ant1_current_ant2_original:
 
         copy_data = list(empty_row)
-        ant2_copy.loc[dupl] = copy_data
+        ant5_copy.loc[dupl] = copy_data
         previous_detection = "ant2_needs_changing"
 
     elif ant1_current_ant1_original > ant1_current_ant2_original:
@@ -808,7 +809,7 @@ for dupl in tqdm(dupl_1_5):
             ant1_copy.loc[dupl] = copy_data
         elif abs(ant1_abx - ant1_abx_o) < abs(ant1_abx - ant2_abx_o):
             copy_data = list(empty_row)
-            ant2_copy.loc[dupl] = copy_data
+            ant5_copy.loc[dupl] = copy_data
 
     else:
         weird_detections.append(dupl)
@@ -940,7 +941,7 @@ for dupl in tqdm(dupl_1_6):
 
     ## waffles ##
 
-    if ant1_current_theta == 0:
+    if ant1_current_theta == 0 or math.isnan(ant1_current_theta):
         ant1_current_ant1_original = np.nan
         ant1_current_ant2_original = np.nan
         continue
@@ -950,7 +951,7 @@ for dupl in tqdm(dupl_1_6):
         ant2_current_waffle = davi.create_waffle(
             ant2_abx, ant2_aby, ant2_current_theta, pix)
 
-        if ant1_original_theta == 0:
+        if ant1_original_theta == 0 or math.isnan(ant1_original_theta):
             ant1_current_ant1_original = np.nan
             continue
         elif ant1_original_theta != 0:
@@ -963,7 +964,7 @@ for dupl in tqdm(dupl_1_6):
             ant1_current_ant2_original = np.nan
             continue
 
-        elif ant2_original_theta != 0:
+        elif ant2_original_theta != 0 or math.isnan(ant2_original_theta):
             ant2_original_waffle = davi.create_waffle(
                 ant2_abx_o, ant2_aby_o, ant2_original_theta, pix)
             ant1_current_ant2_original = davi.subtract_colours_2(
@@ -974,7 +975,7 @@ for dupl in tqdm(dupl_1_6):
     if ant1_current_ant1_original < ant1_current_ant2_original:
 
         copy_data = list(empty_row)
-        ant2_copy.loc[dupl] = copy_data
+        ant6_copy.loc[dupl] = copy_data
         previous_detection = "ant2_needs_changing"
 
     elif ant1_current_ant1_original > ant1_current_ant2_original:
@@ -989,7 +990,7 @@ for dupl in tqdm(dupl_1_6):
             ant1_copy.loc[dupl] = copy_data
         elif abs(ant1_abx - ant1_abx_o) < abs(ant1_abx - ant2_abx_o):
             copy_data = list(empty_row)
-            ant2_copy.loc[dupl] = copy_data
+            ant6_copy.loc[dupl] = copy_data
 
     else:
         weird_detections.append(dupl)
@@ -1120,7 +1121,7 @@ for dupl in tqdm(dupl_2_3):
 
     ## waffles ##
 
-    if ant2_current_theta == 0:
+    if ant2_current_theta == 0 or math.isnan(ant2_current_theta):
         ant2_current_ant2_original = np.nan
         ant2_current_ant3_original = np.nan
 
@@ -1130,7 +1131,7 @@ for dupl in tqdm(dupl_2_3):
         ant3_current_waffle = davi.create_waffle(
             ant3_abx, ant3_aby, ant3_current_theta, pix)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant2_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -1139,7 +1140,7 @@ for dupl in tqdm(dupl_2_3):
             ant2_current_ant2_original = davi.subtract_colours_2(
                 ant2_current_waffle, ant2_original_waffle)
 
-        if ant3_original_theta == 0:
+        if ant3_original_theta == 0 or math.isnan(ant3_original_theta):
             ant2_current_ant3_original = np.nan
 
         elif ant3_original_theta != 0:
@@ -1299,7 +1300,7 @@ for dupl in tqdm(dupl_2_4):
 
     ## waffles ##
 
-    if ant2_current_theta == 0:
+    if ant2_current_theta == 0 or math.isnan(ant2_current_theta):
         ant2_current_ant2_original = np.nan
         ant2_current_ant4_original = np.nan
 
@@ -1309,7 +1310,7 @@ for dupl in tqdm(dupl_2_4):
         ant4_current_waffle = davi.create_waffle(
             ant4_abx, ant4_aby, ant4_current_theta, pix)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant2_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -1318,7 +1319,7 @@ for dupl in tqdm(dupl_2_4):
             ant2_current_ant2_original = davi.subtract_colours_2(
                 ant2_current_waffle, ant2_original_waffle)
 
-        if ant4_original_theta == 0:
+        if ant4_original_theta == 0 or math.isnan(ant4_original_theta):
             ant2_current_ant4_original = np.nan
 
         elif ant4_original_theta != 0:
@@ -1478,7 +1479,7 @@ for dupl in tqdm(dupl_2_5):
 
     ## waffles ##
 
-    if ant2_current_theta == 0:
+    if ant2_current_theta == 0 or math.isnan(ant2_current_theta):
         ant2_current_ant2_original = np.nan
         ant2_current_ant5_original = np.nan
 
@@ -1488,7 +1489,7 @@ for dupl in tqdm(dupl_2_5):
         ant5_current_waffle = davi.create_waffle(
             ant5_abx, ant5_aby, ant5_current_theta, pix)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant2_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -1497,7 +1498,7 @@ for dupl in tqdm(dupl_2_5):
             ant2_current_ant2_original = davi.subtract_colours_2(
                 ant2_current_waffle, ant2_original_waffle)
 
-        if ant5_original_theta == 0:
+        if ant5_original_theta == 0 or math.isnan(ant5_original_theta):
             ant2_current_ant5_original = np.nan
 
         elif ant5_original_theta != 0:
@@ -1657,7 +1658,7 @@ for dupl in tqdm(dupl_2_6):
 
     ## waffles ##
 
-    if ant2_current_theta == 0:
+    if ant2_current_theta == 0 or math.isnan(ant2_current_theta):
         ant2_current_ant2_original = np.nan
         ant2_current_ant6_original = np.nan
 
@@ -1667,7 +1668,7 @@ for dupl in tqdm(dupl_2_6):
         ant6_current_waffle = davi.create_waffle(
             ant6_abx, ant6_aby, ant6_current_theta, pix)
 
-        if ant2_original_theta == 0:
+        if ant2_original_theta == 0 or math.isnan(ant2_original_theta):
             ant2_current_ant2_original = np.nan
 
         elif ant2_original_theta != 0:
@@ -1676,7 +1677,7 @@ for dupl in tqdm(dupl_2_6):
             ant2_current_ant2_original = davi.subtract_colours_2(
                 ant2_current_waffle, ant2_original_waffle)
 
-        if ant6_original_theta == 0:
+        if ant6_original_theta == 0 or math.isnan(ant6_original_theta):
             ant2_current_ant6_original = np.nan
 
         elif ant6_original_theta != 0:
@@ -1834,7 +1835,7 @@ for dupl in tqdm(dupl_3_4):
 
     ## waffles ##
 
-    if ant3_current_theta == 0:
+    if ant3_current_theta == 0 or math.isnan(ant3_current_theta):
         ant3_current_ant3_original = np.nan
         ant3_current_ant4_original = np.nan
 
@@ -1844,7 +1845,7 @@ for dupl in tqdm(dupl_3_4):
         ant4_current_waffle = davi.create_waffle(
             ant4_abx, ant4_aby, ant4_current_theta, pix)
 
-        if ant3_original_theta == 0:
+        if ant3_original_theta == 0 or math.isnan(ant3_original_theta):
             ant3_current_ant3_original = np.nan
 
         elif ant3_original_theta != 0:
@@ -1853,7 +1854,7 @@ for dupl in tqdm(dupl_3_4):
             ant3_current_ant3_original = davi.subtract_colours_2(
                 ant3_current_waffle, ant3_original_waffle)
 
-        if ant4_original_theta == 0:
+        if ant4_original_theta == 0 or math.isnan(ant4_original_theta):
             ant3_current_ant4_original = np.nan
 
         elif ant4_original_theta != 0:
@@ -2012,7 +2013,7 @@ for dupl in tqdm(dupl_3_5):
 
     ## waffles ##
 
-    if ant3_current_theta == 0:
+    if ant3_current_theta == 0 or math.isnan(ant3_current_theta):
         ant3_current_ant3_original = np.nan
         ant3_current_ant5_original = np.nan
 
@@ -2022,7 +2023,7 @@ for dupl in tqdm(dupl_3_5):
         ant5_current_waffle = davi.create_waffle(
             ant5_abx, ant5_aby, ant5_current_theta, pix)
 
-        if ant3_original_theta == 0:
+        if ant3_original_theta == 0 or math.isnan(ant3_original_theta):
             ant3_current_ant3_original = np.nan
 
         elif ant3_original_theta != 0:
@@ -2031,7 +2032,7 @@ for dupl in tqdm(dupl_3_5):
             ant3_current_ant3_original = davi.subtract_colours_2(
                 ant3_current_waffle, ant3_original_waffle)
 
-        if ant5_original_theta == 0:
+        if ant5_original_theta == 0 or math.isnan(ant5_original_theta):
             ant3_current_ant5_original = np.nan
 
         elif ant5_original_theta != 0:
@@ -2191,7 +2192,7 @@ for dupl in tqdm(dupl_3_6):
 
     ## waffles ##
 
-    if ant3_current_theta == 0:
+    if ant3_current_theta == 0 or math.isnan(ant3_current_theta):
         ant3_current_ant3_original = np.nan
         ant3_current_ant6_original = np.nan
 
@@ -2201,7 +2202,7 @@ for dupl in tqdm(dupl_3_6):
         ant6_current_waffle = davi.create_waffle(
             ant6_abx, ant6_aby, ant6_current_theta, pix)
 
-        if ant3_original_theta == 0:
+        if ant3_original_theta == 0 or math.isnan(ant3_original_theta):
             ant3_current_ant3_original = np.nan
 
         elif ant3_original_theta != 0:
@@ -2210,7 +2211,7 @@ for dupl in tqdm(dupl_3_6):
             ant3_current_ant3_original = davi.subtract_colours_2(
                 ant3_current_waffle, ant3_original_waffle)
 
-        if ant6_original_theta == 0:
+        if ant6_original_theta == 0 or math.isnan(ant6_original_theta):
             ant3_current_ant6_original = np.nan
 
         elif ant6_original_theta != 0:
@@ -2370,7 +2371,7 @@ for dupl in tqdm(dupl_4_5):
 
     ## waffles ##
 
-    if ant4_current_theta == 0:
+    if ant4_current_theta == 0 or math.isnan(ant4_current_theta):
         ant4_current_ant4_original = np.nan
         ant4_current_ant5_original = np.nan
 
@@ -2380,7 +2381,7 @@ for dupl in tqdm(dupl_4_5):
         ant5_current_waffle = davi.create_waffle(
             ant5_abx, ant5_aby, ant5_current_theta, pix)
 
-        if ant4_original_theta == 0:
+        if ant4_original_theta == 0 or math.isnan(ant4_original_theta):
             ant4_current_ant4_original = np.nan
 
         elif ant4_original_theta != 0:
@@ -2389,7 +2390,7 @@ for dupl in tqdm(dupl_4_5):
             ant4_current_ant4_original = davi.subtract_colours_2(
                 ant4_current_waffle, ant4_original_waffle)
 
-        if ant5_original_theta == 0:
+        if ant5_original_theta == 0 or math.isnan(ant5_original_theta):
             ant4_current_ant5_original = np.nan
 
         elif ant5_original_theta != 0:
@@ -2548,7 +2549,7 @@ for dupl in tqdm(dupl_4_6):
 
     ## waffles ##
 
-    if ant4_current_theta == 0:
+    if ant4_current_theta == 0 or math.isnan(ant4_current_theta):
         ant4_current_ant4_original = np.nan
         ant4_current_ant6_original = np.nan
 
@@ -2558,7 +2559,7 @@ for dupl in tqdm(dupl_4_6):
         ant6_current_waffle = davi.create_waffle(
             ant6_abx, ant6_aby, ant6_current_theta, pix)
 
-        if ant4_original_theta == 0:
+        if ant4_original_theta == 0 or math.isnan(ant4_original_theta):
             ant4_current_ant4_original = np.nan
 
         elif ant4_original_theta != 0:
@@ -2567,7 +2568,7 @@ for dupl in tqdm(dupl_4_6):
             ant4_current_ant4_original = davi.subtract_colours_2(
                 ant4_current_waffle, ant4_original_waffle)
 
-        if ant6_original_theta == 0:
+        if ant6_original_theta == 0 or math.isnan(ant6_original_theta):
             ant4_current_ant6_original = np.nan
 
         elif ant6_original_theta != 0:
@@ -2726,7 +2727,7 @@ for dupl in tqdm(dupl_5_6):
 
     ## waffles ##
 
-    if ant5_current_theta == 0:
+    if ant5_current_theta == 0 or math.isnan(ant5_current_theta):
         ant5_current_ant5_original = np.nan
         ant5_current_ant6_original = np.nan
 
@@ -2736,7 +2737,7 @@ for dupl in tqdm(dupl_5_6):
         ant6_current_waffle = davi.create_waffle(
             ant6_abx, ant6_aby, ant6_current_theta, pix)
 
-        if ant5_original_theta == 0:
+        if ant5_original_theta == 0 or math.isnan(ant5_original_theta):
             ant5_current_ant5_original = np.nan
 
         elif ant5_original_theta != 0:
@@ -2745,7 +2746,7 @@ for dupl in tqdm(dupl_5_6):
             ant5_current_ant5_original = davi.subtract_colours_2(
                 ant5_current_waffle, ant5_original_waffle)
 
-        if ant6_original_theta == 0:
+        if ant6_original_theta == 0 or math.isnan(ant6_original_theta):
             ant5_current_ant6_original = np.nan
 
         elif ant6_original_theta != 0:
@@ -2781,8 +2782,30 @@ for dupl in tqdm(dupl_5_6):
 
 final1 = pd.concat([ant1_copy, ant2_copy, ant3_copy, ant4_copy,
                    ant5_copy, ant6_copy], axis=1, join='inner')
+                   
+                   
+                   
+#file_name = os.path.basename(davi_output_path)
 
-final1.to_hdf(os.path.join(davi_output_path, 'full_pipeline.h5'), key="changed_names", format="fixed")
+
+#if dupl_split == 1:
 
 
+#	final1.to_hdf(os.path.join(davi_output_path, 'davi_split1_'+file_name), key="changed_names", format="fixed")
+
+
+#elif dupl_split == 2:
+
+
+#	final1.to_hdf(os.path.join(davi_output_path, 'davi_split2_'+file_name), key="changed_names", format="fixed")
+
+#else:
+
+final1.to_hdf(os.path.join(davi_output_path, 'davi_'+file_name), key="changed_names", format="fixed")
+	
+	
+	
+	
 print("all finished! Check if davi was successful by making a labelled video! fingers crossed...")
+
+globals().clear()
