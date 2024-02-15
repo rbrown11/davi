@@ -28,7 +28,7 @@ print("ANT 3")
 
 path = original_detections_path
 
-data = pd.read_hdf(path)
+#data = pd.read_hdf(path)
 
 data_copy = pd.DataFrame().reindex(columns=data.columns)
 
@@ -61,60 +61,14 @@ for i in tqdm(range(0, len(data))):
 
     if i != 0:
 
-        ind1_abx = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i]
-        ind1_aby = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i]
 
-        ind1_abx_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i-1]
-        ind1_aby_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i-1]
-
-        ind2_abx = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i]
-        ind2_aby = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i]
-
-        ind2_abx_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i-1]
-        ind2_aby_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i-1]
 
         ind3_abx = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i]
         ind3_aby = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i]
 
-        ind4_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i]
-        ind4_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i]
 
-        ind4_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i-1]
-        ind4_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i-1]
-
-        ind5_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i]
-        ind5_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i]
-
-        ind5_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i-1]
-        ind5_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i-1]
-
-        ind6_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i]
-        ind6_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i]
-
-        ind6_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i-1]
-        ind6_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i-1]
 
         if previous_detection == "first":
 
@@ -123,7 +77,7 @@ for i in tqdm(range(0, len(data))):
             ind3_aby_p = data[(
                 'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i-1]
 
-        if previous_detection == "ind3_changed_id":
+        elif previous_detection == "ind3_changed_id":
 
             ind3_abx_p = ant3_copy[(
                 'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i-1]
@@ -498,60 +452,14 @@ for i in tqdm(range(0, len(data))):
 
     if i != 0:
 
-        ind1_abx = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i]
-        ind1_aby = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i]
-
-        ind1_abx_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i-1]
-        ind1_aby_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i-1]
-
-        ind2_abx = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i]
-        ind2_aby = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i]
-
-        ind2_abx_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i-1]
-        ind2_aby_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i-1]
 
         ind3_abx = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i]
         ind3_aby = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i]
 
-        ind4_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i]
-        ind4_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i]
 
-        ind4_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i-1]
-        ind4_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i-1]
 
-        ind5_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i]
-        ind5_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i]
-
-        ind5_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i-1]
-        ind5_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i-1]
-
-        ind6_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i]
-        ind6_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i]
-
-        ind6_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i-1]
-        ind6_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i-1]
 
         if previous_detection == "first":
 
@@ -933,60 +841,14 @@ for i in tqdm(range(0, len(data))):
 
     if i != 0:
 
-        ind1_abx = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i]
-        ind1_aby = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i]
-
-        ind1_abx_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i-1]
-        ind1_aby_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i-1]
-
-        ind2_abx = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i]
-        ind2_aby = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i]
-
-        ind2_abx_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i-1]
-        ind2_aby_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i-1]
 
         ind3_abx = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i]
         ind3_aby = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i]
 
-        ind4_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i]
-        ind4_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i]
 
-        ind4_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i-1]
-        ind4_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i-1]
 
-        ind5_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i]
-        ind5_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i]
-
-        ind5_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i-1]
-        ind5_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i-1]
-
-        ind6_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i]
-        ind6_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i]
-
-        ind6_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i-1]
-        ind6_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i-1]
 
         if previous_detection == "first":
 
@@ -1369,61 +1231,13 @@ for i in tqdm(range(0, len(data))):
 
     if i != 0:
 
-        ind1_abx = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i]
-        ind1_aby = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i]
-
-        ind1_abx_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i-1]
-        ind1_aby_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i-1]
-
-        ind2_abx = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i]
-        ind2_aby = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i]
-
-        ind2_abx_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i-1]
-        ind2_aby_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i-1]
 
         ind3_abx = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i]
         ind3_aby = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'y')][i]
 
-        ind4_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i]
-        ind4_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i]
-
-        ind4_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i-1]
-        ind4_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i-1]
-
-        ind5_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i]
-        ind5_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i]
-
-        ind5_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i-1]
-        ind5_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i-1]
-
-        ind6_abx = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i]
-        ind6_aby = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i]
-
-        ind6_abx_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i-1]
-        ind6_aby_p = data[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i-1]
-
+ 
         if previous_detection == "first":
 
             ind3_abx_p = data[(
@@ -1795,7 +1609,7 @@ time.sleep(1)
 print("now to compare colours :)")
 
 
-vidname = os.path.basename(video_path)
+#vidname = os.path.basename(video_path)
 
 
 ant1 = data.xs('ind1', level='individuals', axis=1, drop_level=False)
@@ -2345,9 +2159,13 @@ for mix in refined_ant3_ant1_mix, refined_ant3_ant2_mix, refined_ant3_ant4_mix, 
                         ind3_ind5 = 30
 
                     if ind6_theta != 0:
-                        ind6_waffle = davi.create_waffle(
+                        if ind6_aby > 1070:
+                            ind3_ind6 = 30
+                        else:
+                              
+                            ind6_waffle = davi.create_waffle(
                             ind6_abx, ind6_aby, ind6_theta, pix)
-                        ind3_ind6 = davi.subtract_colours_2(
+                            ind3_ind6 = davi.subtract_colours_2(
                             ind3_waffle, ind6_waffle)
                     else:
                         ind3_ind6 = 30
@@ -2547,3 +2365,5 @@ print("colour checks are complete")
 
 #ant3_copy.to_csv("ant3_detections.csv")
 ant3_copy.to_hdf(os.path.join(davi_output_path, "ant3_detections.h5"), key="changed_names", format="fixed")
+
+globals().clear()
