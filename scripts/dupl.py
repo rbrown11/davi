@@ -46,12 +46,12 @@ ant6 = pd.read_hdf(ant6_path)
 final = pd.concat([ant1, ant2, ant3, ant4, ant5, ant6], join='inner', axis=1)
 
 
-original_path = original_detections_path
+#original_path = original_detections_path
 
-data = pd.read_hdf(original_path)
+#data = pd.read_hdf(original_path)
 
 
-vidname = os.path.basename(video_path)
+#vidname = os.path.basename(video_path)
 
 
 ant1 = data.xs('ind1', level='individuals', axis=1, drop_level=False)
@@ -761,7 +761,7 @@ for dupl in tqdm(dupl_1_5):
 
     ## waffles ##
 
-    if ant1_current_theta == 0 or math.isnan(ant1_current_theta):
+    if ant1_current_theta == 0 or math.isnan(ant1_current_theta) or ant1_aby > 1070:
         ant1_current_ant1_original = np.nan
         ant1_current_ant2_original = np.nan
         continue
