@@ -27,7 +27,7 @@ print("ANT 6")
 
 path = original_detections_path
 
-data = pd.read_hdf(path)
+#data = pd.read_hdf(path)
 
 data_copy = pd.DataFrame().reindex(columns=data.columns)
 
@@ -58,56 +58,6 @@ for i in tqdm(range(0, len(data))):
     new_row_ant6 = ant6.loc[i]
 
     if i != 0:
-
-        ind1_abx = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i]
-        ind1_aby = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i]
-
-        ind1_abx_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'x')][i-1]
-        ind1_aby_p = ant1[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind1', 'abdomen', 'y')][i-1]
-
-        ind2_abx = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i]
-        ind2_aby = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i]
-
-        ind2_abx_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'x')][i-1]
-        ind2_aby_p = ant2[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind2', 'abdomen', 'y')][i-1]
-
-        ind3_abx = ant3[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i]
-        ind3_aby = ant3[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i]
-
-        ind3_abx_p = ant3[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'x')][i-1]
-        ind3_aby_p = ant3[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind3', 'abdomen', 'y')][i-1]
-
-        ind4_abx = ant4[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i]
-        ind4_aby = ant4[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i]
-
-        ind4_abx_p = ant4[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'x')][i-1]
-        ind4_aby_p = ant4[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind4', 'abdomen', 'y')][i-1]
-
-        ind5_abx = ant5[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i]
-        ind5_aby = ant5[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i]
-
-        ind5_abx_p = ant5[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'x')][i-1]
-        ind5_aby_p = ant5[(
-            'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind5', 'abdomen', 'y')][i-1]
 
         ind6_abx = data[(
             'DLC_dlcrnetms5_full-modelJan10shuffle1_100000', 'ind6', 'abdomen', 'x')][i]
@@ -480,7 +430,7 @@ time.sleep(1)
 print("now to compare colours :)")
 
 
-vidname = os.path.basename(video_path)
+#vidname = os.path.basename(video_path)
 
 
 ant1 = data.xs('ind1', level='individuals', axis=1, drop_level=False)
@@ -1238,3 +1188,5 @@ print("Now move onto the duplicate cleaning stage! :)")
 
 #ant6_copy.to_csv("ant6_detections.csv")
 ant6_copy.to_hdf(os.path.join(davi_output_path, "ant6_detections.h5"), key="changed_names", format="fixed")
+
+globals().clear()
